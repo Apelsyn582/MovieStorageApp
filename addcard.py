@@ -1,5 +1,4 @@
 from PyQt5 import QtWidgets, QtCore, QtGui
-
 from windowaddmovie import AddMovieWindow
 
 
@@ -12,6 +11,7 @@ class AddCard(QtWidgets.QWidget):
             border-radius: 10px;
             box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.4); 
             padding: 10px;
+            transition: background-color 0.3s ease;
         """)
 
         self.setFixedSize(281, 411)
@@ -27,6 +27,24 @@ class AddCard(QtWidgets.QWidget):
         main_layout.addWidget(self.label)
 
         self.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
+
+        self.setStyleSheet("""
+            QWidget {
+                background-color: rgb(60, 60, 63); 
+                border-radius: 10px;
+                box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.4); 
+                padding: 10px;
+                transition: background-color 0.3s ease;
+            }
+            QWidget:hover {
+                background-color: rgb(80, 80, 83);  /* Колір при наведенні */
+            }
+            QWidget:pressed {
+                background-color: rgb(50, 50, 53);  /* Колір при натисканні */
+                padding-top: 12px;
+                padding-bottom: 8px;
+            }
+        """)
 
         self.mousePressEvent = self.add_movie_event
 

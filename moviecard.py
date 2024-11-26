@@ -1,7 +1,6 @@
 from PyQt5 import QtWidgets, QtCore, QtGui
 from windowaddmovie import AddMovieWindow
 
-
 class MovieCard(QtWidgets.QWidget):
     def __init__(self, title, rating, date, path_image, parent=None):
         super(MovieCard, self).__init__(parent)
@@ -30,13 +29,13 @@ class MovieCard(QtWidgets.QWidget):
         self.rating = QtWidgets.QLabel(rating, self)
         self.rating.setFont(QtGui.QFont("Arial", 9))
         self.rating.setStyleSheet("color: gold;")
-        self.rating.setAlignment(QtCore.Qt.AlignLeft)
+        self.rating.setAlignment(QtCore.Qt.AlignCenter)  
         info_layout.addWidget(self.rating)
 
         self.date = QtWidgets.QLabel(date, self)
         self.date.setFont(QtGui.QFont("Arial", 9))
         self.date.setStyleSheet("color: white;")
-        self.date.setAlignment(QtCore.Qt.AlignRight)
+        self.date.setAlignment(QtCore.Qt.AlignCenter)  
         info_layout.addWidget(self.date)
 
         main_layout.addLayout(info_layout)

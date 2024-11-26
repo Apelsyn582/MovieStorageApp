@@ -34,12 +34,24 @@ class Ui_MainWindow(object):
         self.pushButton.setText("Пошук")
         self.pushButton.setFixedWidth(100)
         self.pushButton.setFixedHeight(25)
+        
         self.pushButton.setStyleSheet("""
-            background-color: rgb(85, 170, 255); 
-            color: white;
-            border: none;
-            border-radius: 5px;
-        """)
+    QPushButton {
+        background-color: rgb(85, 170, 255); 
+        color: white;
+        border: none;
+        border-radius: 5px;
+        padding: 5px;
+        transition: background-color 0.3s ease;
+    }
+    QPushButton:hover {
+        background-color: rgb(0, 123, 255); 
+    }
+    QPushButton:pressed {
+        background-color: rgb(0, 98, 204); 
+        padding-top: 7px;  
+        padding-bottom: 3px;
+    }""")
 
         self.horizontalLayout.addWidget(self.lineEdit)
         self.horizontalLayout.addWidget(self.pushButton)
