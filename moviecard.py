@@ -7,9 +7,8 @@ class MovieCard(QtWidgets.QWidget):
         super(MovieCard, self).__init__(parent)
 
         self.setStyleSheet("""
-            background-color: #292C42; 
+            background-color: rgb(60, 60, 63); 
             border-radius: 10px;
-            border: 2px solid rgb(255, 255, 255); 
             box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.4); 
             padding: 10px;
         """)
