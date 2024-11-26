@@ -7,7 +7,8 @@ class Ui_MainWindow(object):
         MainWindow.setObjectName("MainWindow")
         MainWindow.setWindowTitle("Movie Storage Application")
         MainWindow.showMaximized()
-        MainWindow.setStyleSheet("background-color: rgb(85, 170, 255);")
+
+        MainWindow.setStyleSheet("background-color: rgb(45, 45, 48);")
 
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setObjectName("centralwidget")
@@ -21,11 +22,24 @@ class Ui_MainWindow(object):
 
         self.lineEdit = QtWidgets.QLineEdit(self.searchWidget)
         self.lineEdit.setFixedWidth(300)
-        self.lineEdit.setStyleSheet("background-color: rgb(255, 255, 255);")
+        self.lineEdit.setStyleSheet("""
+            background-color: rgb(60, 63, 65); 
+            color: white;
+            border: 1px solid rgb(80, 80, 80);
+            border-radius: 5px;
+            padding: 5px;
+        """)
 
         self.pushButton = QtWidgets.QPushButton(self.searchWidget)
         self.pushButton.setText("Пошук")
         self.pushButton.setFixedWidth(100)
+        self.pushButton.setFixedHeight(25)
+        self.pushButton.setStyleSheet("""
+            background-color: rgb(85, 170, 255); 
+            color: white;
+            border: none;
+            border-radius: 5px;
+        """)
 
         self.horizontalLayout.addWidget(self.lineEdit)
         self.horizontalLayout.addWidget(self.pushButton)
@@ -67,8 +81,11 @@ class Ui_MainWindow(object):
         MainWindow.setCentralWidget(self.centralwidget)
 
         self.menubar = QtWidgets.QMenuBar(MainWindow)
+        self.menubar.setStyleSheet("background-color: rgb(45, 45, 48); color: white;")
         MainWindow.setMenuBar(self.menubar)
+
         self.statusbar = QtWidgets.QStatusBar(MainWindow)
+        self.statusbar.setStyleSheet("background-color: rgb(45, 45, 48); color: white;")
         MainWindow.setStatusBar(self.statusbar)
 
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
