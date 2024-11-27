@@ -6,7 +6,7 @@ class AddMovieWindow(QtWidgets.QWidget):
         super(AddMovieWindow, self).__init__()
 
         self.setWindowTitle("Додати фільм")
-        self.setFixedSize(500, 350)
+        self.setFixedSize(500, 360)
 
         # Стиль для вікна
         self.setStyleSheet("""
