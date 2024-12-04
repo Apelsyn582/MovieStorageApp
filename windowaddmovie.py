@@ -8,17 +8,14 @@ class AddMovieWindow(QtWidgets.QWidget):
         self.setWindowTitle("Додати фільм")
         self.setFixedSize(500, 360)
 
-        # Стиль для вікна
         self.setStyleSheet("""
             background-color: rgb(45, 45, 48);
             border-radius: 10px;
             padding: 10px;
         """)
 
-        # Основний лейаут
         main_layout = QtWidgets.QVBoxLayout(self)
 
-        # Назва фільму
         self.name_label = QtWidgets.QLabel("Назва фільму:", self)
         self.name_label.setFont(QtGui.QFont("Arial", 10, QtGui.QFont.Bold))  # Зробимо текст жирним
         self.name_label.setStyleSheet("color: white;")
@@ -33,7 +30,6 @@ class AddMovieWindow(QtWidgets.QWidget):
         main_layout.addWidget(self.name_label)
         main_layout.addWidget(self.name_input)
 
-        # Рейтинг
         self.rating_label = QtWidgets.QLabel("Рейтинг:", self)
         self.rating_label.setFont(QtGui.QFont("Arial", 10, QtGui.QFont.Bold))  # Зробимо текст жирним
         self.rating_label.setStyleSheet("color: white;")
@@ -48,7 +44,6 @@ class AddMovieWindow(QtWidgets.QWidget):
         main_layout.addWidget(self.rating_label)
         main_layout.addWidget(self.rating_input)
 
-        # Дата
         self.date_label = QtWidgets.QLabel("Дата виходу:", self)
         self.date_label.setFont(QtGui.QFont("Arial", 10, QtGui.QFont.Bold))  # Зробимо текст жирним
         self.date_label.setStyleSheet("color: white;")
@@ -63,7 +58,6 @@ class AddMovieWindow(QtWidgets.QWidget):
         main_layout.addWidget(self.date_label)
         main_layout.addWidget(self.date_input)
 
-        # Зображення
         self.image_label = QtWidgets.QLabel("Зображення:", self)
         self.image_label.setFont(QtGui.QFont("Arial", 10, QtGui.QFont.Bold))  # Зробимо текст жирним
         self.image_label.setStyleSheet("color: white;")
@@ -84,7 +78,6 @@ class AddMovieWindow(QtWidgets.QWidget):
         main_layout.addWidget(self.image_label)
         main_layout.addLayout(image_layout)
 
-        # Кнопки Додати та Скасувати
         button_layout = QtWidgets.QHBoxLayout()
 
         self.add_button = QtWidgets.QPushButton("Додати", self)
@@ -94,6 +87,15 @@ class AddMovieWindow(QtWidgets.QWidget):
             border: none;
             border-radius: 5px;
             padding: 5px;
+        }
+        QPushButton:hover {
+            background-color: rgb(70, 150, 240);  
+        }
+        QPushButton:pressed {
+            background-color: rgb(50, 120, 200); 
+            padding-top: 7px;  
+            padding-bottom: 3px; 
+        }
         """)
         self.add_button.clicked.connect(self.add_movie)
 
@@ -104,6 +106,15 @@ class AddMovieWindow(QtWidgets.QWidget):
             border: none;
             border-radius: 5px;
             padding: 5px;
+        }
+        QPushButton:hover {
+            background-color: rgb(200, 0, 0);  
+        }
+        QPushButton:pressed {
+            background-color: rgb(150, 0, 0); 
+            padding-top: 7px;  
+            padding-bottom: 3px;
+        }
         """)
         self.cancel_button.clicked.connect(self.close)
 
