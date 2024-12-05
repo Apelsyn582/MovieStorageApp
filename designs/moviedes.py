@@ -1,6 +1,7 @@
 from PyQt5 import QtWidgets, QtCore
-from designs.moviecard import MovieCard
-from designs.addcard import AddCard
+from moviecard import MovieCard
+from addcard import AddCard
+from regwindow import RegistrationWindow
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
@@ -30,31 +31,53 @@ class Ui_MainWindow(object):
             padding: 5px;
         """)
 
-        self.pushButton = QtWidgets.QPushButton(self.searchWidget)
-        self.pushButton.setText("Пошук")
-        self.pushButton.setFixedWidth(100)
-        self.pushButton.setFixedHeight(25)
-        
-        self.pushButton.setStyleSheet("""
-    QPushButton {
-        background-color: rgb(85, 170, 255); 
-        color: white;
-        border: none;
-        border-radius: 5px;
-        padding: 5px;
-        transition: background-color 0.3s ease;
-    }
-    QPushButton:hover {
-        background-color: rgb(0, 123, 255); 
-    }
-    QPushButton:pressed {
-        background-color: rgb(0, 98, 204); 
-        padding-top: 7px;  
-        padding-bottom: 3px;
-    }""")
+        self.searchButton = QtWidgets.QPushButton(self.searchWidget)
+        self.searchButton.setText("Пошук")
+        self.searchButton.setFixedWidth(100)
+        self.searchButton.setFixedHeight(25)
+        self.searchButton.setStyleSheet("""
+        QPushButton {
+            background-color: rgb(85, 170, 255); 
+            color: white;
+            border: none;
+            border-radius: 5px;
+            padding: 5px;
+            transition: background-color 0.3s ease;
+        }
+        QPushButton:hover {
+            background-color: rgb(0, 123, 255); 
+        }
+        QPushButton:pressed {
+            background-color: rgb(0, 98, 204); 
+            padding-top: 7px;  
+            padding-bottom: 3px;
+        }""")
+
+        self.registerButton = QtWidgets.QPushButton("Реєстрація")
+        self.registerButton.setFixedWidth(100)
+        self.registerButton.setFixedHeight(25)
+        self.registerButton.setStyleSheet("""
+                QPushButton {
+                    background-color: rgb(85, 170, 255); 
+                    color: white;
+                    border: none;
+                    border-radius: 5px;
+                    padding: 5px;
+                    transition: background-color 0.3s ease;
+                }
+                QPushButton:hover {
+                    background-color: rgb(0, 123, 255); 
+                }
+                QPushButton:pressed {
+                    background-color: rgb(0, 98, 204); 
+                    padding-top: 7px;  
+                    padding-bottom: 3px;
+                }""")
+        self.registerButton.clicked.connect(self.registration_window)
 
         self.horizontalLayout.addWidget(self.lineEdit)
-        self.horizontalLayout.addWidget(self.pushButton)
+        self.horizontalLayout.addWidget(self.searchButton)
+        self.horizontalLayout.addWidget(self.registerButton)
         self.horizontalLayout.setAlignment(QtCore.Qt.AlignCenter)
 
         self.mainLayout.addWidget(self.searchWidget, alignment=QtCore.Qt.AlignCenter)
@@ -101,3 +124,7 @@ class Ui_MainWindow(object):
         MainWindow.setStatusBar(self.statusbar)
 
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
+
+    def registration_window(self):
+        self.registration_window = RegistrationWindow()
+        self.registration_window.show()

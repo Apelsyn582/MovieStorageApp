@@ -37,10 +37,10 @@ class AddCard(QtWidgets.QWidget):
                 transition: background-color 0.3s ease;
             }
             QWidget:hover {
-                background-color: rgb(80, 80, 83);  /* Колір при наведенні */
+                background-color: rgb(80, 80, 83);  
             }
             QWidget:pressed {
-                background-color: rgb(50, 50, 53);  /* Колір при натисканні */
+                background-color: rgb(50, 50, 53);  
                 padding-top: 12px;
                 padding-bottom: 8px;
             }
