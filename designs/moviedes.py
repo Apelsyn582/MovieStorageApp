@@ -1,13 +1,15 @@
 from PyQt5 import QtWidgets, QtCore
-from moviecard import MovieCard
-from addcard import AddCard
-from regwindow import RegistrationWindow
+from designs.moviecard import MovieCard
+from designs.addcard import AddCard
+from designs.regwindow import RegistrationWindow
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
         MainWindow.setWindowTitle("Movie Storage Application")
         MainWindow.showMaximized()
+
+        self.count_of_widgets = 0
 
         MainWindow.setStyleSheet("background-color: rgb(45, 45, 48);")
 
@@ -110,6 +112,7 @@ class Ui_MainWindow(object):
                 path_image=movie["path"]
             )
             self.gridLayout.addWidget(movie_card, i // 3, i % 3)
+        self.count_of_widgets = len(movies)
 
         add_movie_card = AddCard()
         self.gridLayout.addWidget(add_movie_card, len(movies) // 3, len(movies) % 3)

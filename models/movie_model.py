@@ -39,12 +39,11 @@ new_movie = Movie(
     listed_in=["Documentaries"],
     description="As her father nears the end of his life, filmmaker Kirsten Johnson stages his death...",
     cast_count=0,
-    poster_url="https://www.themoviedb.org/movie/653574-dick-johnson-is-dead"
-)
+    poster_url="https://www.themoviedb.org/movie/653574-dick-johnson-is-dead")
 
 # Збереження запису в базу даних
-try:
-    new_movie.save()
-    print(f"Movie '{new_movie.title}' added successfully!")
-except Exception as e:
-    print(f"An error occurred while adding the movie: {e}")
+#try:
+#    new_movie.save()
+#    print(f"Movie '{new_movie.title}' added successfully!")
+#except Exception as e:
+#    print(f"An error occurred while adding the movie: {e}")

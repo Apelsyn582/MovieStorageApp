@@ -1,10 +1,16 @@
+import random
+
 from PyQt5 import QtWidgets, QtCore, QtGui
+from PyQt5.QtWidgets import QMessageBox
+
+from designs.moviecard import MovieCard
+from models.liked_movie_model import LikedMovie
 
 
 class AddMovieWindow(QtWidgets.QWidget):
-    def __init__(self):
+    def __init__(self, parent):
         super(AddMovieWindow, self).__init__()
-
+        self.parent = parent
         self.setWindowTitle("Додати фільм")
         self.setFixedSize(500, 360)
 
@@ -97,6 +103,9 @@ class AddMovieWindow(QtWidgets.QWidget):
             padding-bottom: 3px; 
         }
         """)
+
+
+
         self.add_button.clicked.connect(self.add_movie)
 
         self.cancel_button = QtWidgets.QPushButton("Скасувати", self)
@@ -123,6 +132,29 @@ class AddMovieWindow(QtWidgets.QWidget):
 
         main_layout.addLayout(button_layout)
 
+    def add_movie(self):
+
+        title = self.name_input.text()
+        rating = self.rating_input.text()
+        date = self.date_input.text()
+        image_path = self.image_input.text()
+        print(title,rating,date,image_path)
+        new_like = LikedMovie(#модель бд
+            title=title,
+            rate=rating,
+            date=date,
+            file=image_path  # TODO: зробити заливку на telegraph
+        )
+        movie_card = MovieCard(title=title,rating=rating,date=date,path_image=image_path)#модель інтерфейс
+        # TODO: зробити додавання до інтерфейсу нової карти з фільмом
+
+        try:
+            #new_like.save()
+            QMessageBox.information(self, "Info", "Movie added successfully")
+        except Exception as e:
+            QMessageBox.critical(self, "Error", f"Movies was not added due error:\n\n{e}")
+
+        self.close()
     def select_image(self):
         file_dialog = QtWidgets.QFileDialog(self)
         file_dialog.setNameFilter("Images (*.png *.jpg *.bmp)")
@@ -131,10 +163,3 @@ class AddMovieWindow(QtWidgets.QWidget):
             selected_file = file_dialog.selectedFiles()[0]
             self.image_input.setText(selected_file)
 
-    def add_movie(self):
-        title = self.name_input.text()
-        rating = self.rating_input.text()
-        date = self.date_input.text()
-        image_path = self.image_input.text()
-
-        self.close()

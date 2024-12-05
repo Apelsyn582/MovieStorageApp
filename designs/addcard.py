@@ -37,10 +37,10 @@ class AddCard(QtWidgets.QWidget):
                 transition: background-color 0.3s ease;
             }
             QWidget:hover {
-                background-color: rgb(80, 80, 83);  
+                background-color: rgb(80, 80, 83);  /* Колір при наведенні */
             }
             QWidget:pressed {
-                background-color: rgb(50, 50, 53);  
+                background-color: rgb(50, 50, 53);  /* Колір при натисканні */
                 padding-top: 12px;
                 padding-bottom: 8px;
             }
@@ -52,5 +52,7 @@ class AddCard(QtWidgets.QWidget):
         self.open_add_movie_window()
 
     def open_add_movie_window(self):
-        self.add_movie_window = AddMovieWindow()
+        self.add_movie_window = AddMovieWindow(self.parent())
         self.add_movie_window.show()
+
+
