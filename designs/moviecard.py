@@ -1,41 +1,33 @@
 from PyQt5 import QtWidgets, QtCore, QtGui
-from windowaddmovie import AddMovieWindow
+
 
 class MovieCard(QtWidgets.QWidget):
     def __init__(self, title, rating, date, path_image, parent=None):
         super(MovieCard, self).__init__(parent)
 
-        self.setStyleSheet("""
-            background-color: rgb(60, 60, 63); 
-            border-radius: 10px;
-            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.4); 
-            padding: 10px;
-        """)
-        self.setFixedSize(281, 450)
+        self.setStyleSheet("background-color: rgb(111, 106, 255); border-radius: 10px; padding: 10px;")
+        self.setFixedSize(281, 411)
 
         main_layout = QtWidgets.QVBoxLayout(self)
         main_layout.setContentsMargins(10, 10, 10, 10)
 
         self.name = QtWidgets.QLabel(title, self)
-        self.name.setFont(QtGui.QFont("Arial Black", 9, QtGui.QFont.Bold))
-        self.name.setStyleSheet("color: white;")
+        self.name.setFont(QtGui.QFont("Arial Black", 10, QtGui.QFont.Bold))
+        self.name.setStyleSheet("color: black;")
         self.name.setWordWrap(True)
-        self.name.setAlignment(QtCore.Qt.AlignCenter)
+        self.name.setSizePolicy(QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Minimum)
         main_layout.addWidget(self.name)
 
         info_layout = QtWidgets.QHBoxLayout()
-        info_layout.setSpacing(5)
 
         self.rating = QtWidgets.QLabel(rating, self)
-        self.rating.setFont(QtGui.QFont("Arial", 9))
-        self.rating.setStyleSheet("color: gold;")
-        self.rating.setAlignment(QtCore.Qt.AlignCenter)  
+        self.rating.setStyleSheet("color: black;")
+        self.rating.setAlignment(QtCore.Qt.AlignLeft)
         info_layout.addWidget(self.rating)
 
         self.date = QtWidgets.QLabel(date, self)
-        self.date.setFont(QtGui.QFont("Arial", 9))
-        self.date.setStyleSheet("color: white;")
-        self.date.setAlignment(QtCore.Qt.AlignCenter)  
+        self.date.setStyleSheet("color: black;")
+        self.date.setAlignment(QtCore.Qt.AlignRight)
         info_layout.addWidget(self.date)
 
         main_layout.addLayout(info_layout)
@@ -43,6 +35,6 @@ class MovieCard(QtWidgets.QWidget):
         self.image = QtWidgets.QLabel(self)
         self.image.setPixmap(QtGui.QPixmap(path_image))
         self.image.setScaledContents(True)
-        self.image.setFixedSize(261, 330)
+        self.image.setFixedSize(261, 321)
         main_layout.addWidget(self.image)
         main_layout.setAlignment(self.image, QtCore.Qt.AlignCenter)

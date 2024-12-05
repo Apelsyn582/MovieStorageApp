@@ -1,5 +1,5 @@
 from PyQt5 import QtWidgets, QtCore, QtGui
-from windowaddmovie import AddMovieWindow
+from designs.windowaddmovie import AddMovieWindow
 
 
 class AddCard(QtWidgets.QWidget):

@@ -1,6 +1,6 @@
 from PyQt5 import QtWidgets, QtCore
-from moviecard import MovieCard
-from addcard import AddCard
+from designs.moviecard import MovieCard
+from designs.addcard import AddCard
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
